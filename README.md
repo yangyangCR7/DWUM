@@ -1,4 +1,4 @@
-# DWUM: Dimension-Wise Uncertainty Modeling for Robust Deep Metric Learning with Noisy Labels (DWUM)
+# DWUM: Dimension-Wise Uncertainty Modeling for Robust Deep Metric Learning with Noisy Labels
 
 It offers source code for replicating the experiments conducted on three benchmark datasets (CUB200, Cars196, SOP).
 
@@ -11,25 +11,18 @@ It offers source code for replicating the experiments conducted on three benchma
 + scikit-learn
 + scipy
 
-## Training and Evaluation
-
-1. Training
-You can train the DWUM model using the provided configuration `.yml` files. Here is an example of running the training script on the CUB200 dataset:
-
-CUDA_VISIBLE_DEVICES=0 python train.py --cfg scripts/cfgs/RES_PAN_CUB200.yml
-
 ## Datasets
-2. Download four benchmark datasets.
+
+1. Download the three benchmark datasets:
     + [CUB-200-2011](https://data.caltech.edu/records/65de6-vp158)
     + [Cars196](https://ai.stanford.edu/~jkrause/cars/car_dataset.html)
     + [Stanford Online Products](https://cvgl.stanford.edu/projects/lifted_struct/)
-    + [InShop Clothes Retrieval](https://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html)
-Extract the tgz or zip file into `./Dataset` folder.
 
-3. The data folder is constructed as followed:
-```
-Place them in `Dataset` dir as follows:
-```
+2. Extract the `tgz` or `zip` files into the `./Dataset` folder.
+
+3. The data folder should be constructed as follows:
+
+```text
 Dataset/
 ├── Cars196/
 │   ├── Symmetric/
@@ -62,4 +55,3 @@ Dataset/
     │   ├── ...
     │   └── 0.9_Symmetric/
     └── SmallCluster/
-```
