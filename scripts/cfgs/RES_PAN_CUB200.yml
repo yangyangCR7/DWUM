@@ -1,0 +1,59 @@
+MODEL:
+  BACKBONE: BNInception
+  EMBEDDING_SIZE: 512
+
+LOSS:
+  # 'MS', 'NCA', 'SoftTriple', 'Proxy_Anchor'
+  METRIC_LOSS: 'Proxy_Anchor'
+
+  # Proxy Anchor 
+  ALPHA: 32.0
+  MRG: 0.1
+  # MS
+  MS_SCALE_POS: 2.0
+  MS_SCALE_NEG: 40.0
+  MS_MARGIN: 0.1
+  # Proxy_NCA
+  NCA_SCALE: 3.0
+  # SoftTriple
+  SOFT_TRIPLE_LA: 20.0
+  SOFT_TRIPLE_GAMMA: 0.1
+  SOFT_TRIPLE_TAU: 0.2
+  SOFT_TRIPLE_MARGIN: 0.01
+  SOFT_TRIPLE_K: 10
+  # -------------------------
+
+  PROXY_LR: 500
+  BETA: 0.0
+  NOISE_RATE: 0.5
+  WARMUP_EPOCHS: 2
+  GAMMA: 0.3
+  LAMBDA_DIM: 0.1
+  LAMBDA_DCL: 0.5
+  LAMBDA_VAR: 1.0
+  TAU_DCL: 0.07
+
+SOLVER:
+  BASE_LR: 0.00015
+  METRIC_GAMMA: 0.5
+  METRIC_STEPS: 5
+  WEIGHT_DECAY: 0.0001
+  WARM_UP_EPOCH: 2
+  BN_FREEZE: True
+  MAX_GRAD_NORM: 5.0 
+  
+DATA_LOADER:
+  NUM_THREADS: 8
+
+TRAIN:
+  DATASET: ./Dataset/CUB/Symmetric/0.5_Symmetric
+  MODEL_PATH: ./saved_models/models/
+  BOARD_LOG_PATH: ./saved_models/tensorboard
+  NUM_PER_CLASS: 3
+  NUM_SAMPLED_CLASSES: 27
+  EPOCHES: 50
+  SEED: 2024
+
+TEST:
+  DATASET: ./Dataset/CUB/Symmetric/0.5_Symmetric
+  EVAL_ITER: 1
